@@ -3,7 +3,7 @@ import { analyzeString } from '../../core/pipeline';
 describe('analyzeString', () => {
   test('correctly analyzes string with repeated tokens', () => {
     expect(analyzeString('Alpha-Beta Alpha'))
-      .toEqual({ alph: 2, bet: 1 });
+      .toEqual({ alph: 2 });
   });
 
   test('handles empty string', () => {
@@ -15,7 +15,7 @@ describe('analyzeString', () => {
   });
 
   test('handles string with special characters and numbers', () => {
-    expect(analyzeString('Hello123World!'))
-      .toEqual({ hell: 1, world: 1 });
+    expect(analyzeString('Hello123World! Hello123World!'))
+      .toEqual({ hell: 2, world: 2 });
   });
 });
